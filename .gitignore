@@ -1,5 +1,6 @@
 # Build output
 dist/
+.vercel/
 
 # Generated types & cache
 .astro/
@@ -44,3 +45,5 @@ Thumbs.db
 
 # IDE settings
 .idea/
+
+.vercel
