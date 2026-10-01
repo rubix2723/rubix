@@ -1,0 +1,85 @@
+---
+import '../styles/ranade-webfont.css';
+import '../styles/design-tokens.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import { LiquidMercury } from '../components/ui/liquid-mercury';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RUBIX — Material Study: Liquid Mercury</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      :root {
+        --bg-dark: #050608;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: var(--bg-dark);
+        font-family: var(--font-brand, 'Ranade', system-ui, sans-serif);
+      }
+    </style>
+  </head>
+  <body class="relative w-screen h-dvh overflow-hidden bg-[#050608] text-[#F4F4F6] selection:bg-[#F97316] selection:text-[#07080A]">
+    <!-- Fullscreen Liquid Mercury WebGL Shader Island (Centered Composition for Material Study) -->
+    <div class="fixed inset-0 z-0 w-full h-full">
+      <LiquidMercury
+        client:load
+        interactive={true}
+        speed={0.65}
+        canvasOpacity={0.88}
+        ambientGlow={true}
+        grainOverlay={true}
+        focalOffset={[0.0, 0.0]}
+      />
+    </div>
+
+    <!-- Editorial RUBIX Framing Overlay -->
+    <div class="relative z-10 flex flex-col justify-between w-full h-full p-8 md:p-12 lg:p-16 pointer-events-none select-none">
+      <!-- Quiet Header Navigation -->
+      <header class="flex items-center justify-between w-full pointer-events-auto">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 text-xs font-mono tracking-wider uppercase text-[#7A7F8E] hover:text-[#F4F4F6] transition-colors duration-200 group"
+        >
+          <span class="inline-block transition-transform duration-200 group-hover:-translate-x-1">←</span>
+          <span>Studio</span>
+        </a>
+
+        <span class="text-xs font-mono text-[#7A7F8E] tracking-wider uppercase">
+          Material Study 01
+        </span>
+      </header>
+
+      <!-- Center Title -->
+      <main class="flex flex-col items-center justify-center text-center my-auto pointer-events-none max-w-[56ch] mx-auto">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-medium tracking-[-0.04em] text-[#F4F4F6] leading-[0.98] text-balance">
+          Liquid Mercury
+        </h1>
+
+        <p class="text-sm sm:text-base text-[#A0A5B5] mt-6 font-normal tracking-[-0.01em] leading-relaxed text-pretty">
+          Organic metallic curvature, continuous laminar fluid morphing, and directional silver-white Fresnel edge illumination.
+        </p>
+      </main>
+
+      <!-- Minimalist Footnote -->
+      <footer class="flex flex-col sm:flex-row items-center justify-between gap-4 w-full text-xs font-mono text-[#7A7F8E] pointer-events-auto">
+        <div>
+          <span>Obsidian #050608 · Gunmetal #12151B · Silver Rim #F0F4F8</span>
+        </div>
+        <div>
+          <span>RUBIX.studio</span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

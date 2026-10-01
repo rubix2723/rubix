@@ -1,0 +1,138 @@
+---
+import ProjectFeatured from './ProjectFeatured.astro';
+import ProjectSplit from './ProjectSplit.astro';
+import ProjectPair from './ProjectPair.astro';
+import ProjectLedger from './ProjectLedger.astro';
+
+// Verified Source-Driven Project Dataset (100% aligned with live production deployments)
+const project01 = {
+  index: '01',
+  title: 'Rubix Luxury',
+  category: 'Fashion & Lifestyle Commerce',
+  contribution: 'Design + Frontend Development',
+  year: '2026',
+  description: 'Digital commerce platform for contemporary apparel, footwear, and lifestyle accessories, engineered with asymmetric category showcases, curated editorial collections, and interactive cart flows.',
+  shortDescription: 'Digital commerce platform for contemporary apparel, footwear, and lifestyle accessories.',
+  liveUrl: 'https://rubixr.vercel.app/',
+  imageSrc: '/images/projects/rubix-luxury.png',
+  imageAlt: 'Rubix Luxury contemporary apparel, footwear, and accessories e-commerce interface',
+  imageWidth: 1024,
+  imageHeight: 544,
+};
+
+const project02 = {
+  index: '02',
+  title: 'Trouver',
+  category: 'Architecture Studio',
+  contribution: 'Website Design & Frontend',
+  year: '2025',
+  description: 'Digital portfolio for a minimalist architecture studio, structuring architectural projects, spatial photography, and practice information.',
+  shortDescription: 'Digital portfolio for a minimalist architecture studio, structuring projects and spatial photography.',
+  liveUrl: 'https://trouver-weld.vercel.app/',
+  imageSrc: '/images/projects/trouver.png',
+  imageAlt: 'Trouver minimalist architecture studio website showing spatial photography',
+  imageWidth: 1024,
+  imageHeight: 474,
+};
+
+const project03 = {
+  index: '03',
+  title: 'VedaHarmony',
+  category: 'Wellness & Healthcare',
+  contribution: 'Digital Design & Web Development',
+  year: '2025',
+  description: 'Holistic wellness platform combining an herbal apothecary catalog with online practitioner consultations and traditional remedies.',
+  shortDescription: 'Holistic wellness platform combining an herbal apothecary catalog with practitioner consultations.',
+  liveUrl: 'https://aiyu-silk.vercel.app/',
+  imageSrc: '/images/projects/vedaharmony.png',
+  imageAlt: 'VedaHarmony Ayurvedic apothecary catalog and consultation scheduling interface',
+  imageWidth: 1024,
+  imageHeight: 484,
+};
+
+const project04 = {
+  index: '04',
+  title: 'Pastel Booth Co.',
+  category: 'Event Services',
+  contribution: 'Web Design & Development',
+  year: '2025',
+  description: 'Event rental platform featuring interactive package selection, photobooth specifications, and booking inquiry workflows.',
+  shortDescription: 'Event rental platform with interactive package selection and booking workflows.',
+  liveUrl: 'https://photobooth-qaxo.vercel.app/',
+  imageSrc: '/images/projects/photobooth.png',
+  imageAlt: 'Pastel Booth Co. modern photobooth rental and event package configurator',
+  imageWidth: 1024,
+  imageHeight: 519,
+};
+
+const project05 = {
+  index: '05',
+  title: 'M.M. Engineering Works',
+  category: 'Industrial Engineering',
+  contribution: 'Website Design & Development',
+  year: '2024',
+  description: 'Industrial B2B portal for a structural steel fabrication company, presenting manufacturing capabilities, PEB structures, and quote requests.',
+  shortDescription: 'Industrial B2B portal presenting steel fabrication capabilities and PEB structures.',
+  liveUrl: 'https://hardware-kappa.vercel.app/',
+  imageSrc: '/images/projects/hardware.png',
+  imageAlt: 'M.M. Engineering Works industrial steel fabrication and PEB structures portal',
+  imageWidth: 1024,
+  imageHeight: 580,
+};
+
+const project06 = {
+  index: '06',
+  title: 'DCSA Academy',
+  category: 'Education & STEM',
+  contribution: 'Web Platform Design & Development',
+  year: '2024',
+  description: 'Educational portal for a STEM coaching institution, outlining academic curricula, competitive examination mentoring, and student enrollment.',
+  shortDescription: 'Educational portal for a STEM coaching institution in Bengaluru.',
+  liveUrl: 'https://dcsa-academy-rust.vercel.app/',
+  imageSrc: '/images/projects/dcsa-academy.png',
+  imageAlt: 'DCSA Academy STEM coaching institution portal showing academic programs',
+  imageWidth: 1024,
+  imageHeight: 474,
+};
+---
+
+<section id="work" class="pt-10 pb-24 md:pb-32 scroll-mt-24 md:scroll-mt-28">
+  <!-- Section Header Anchor (Semantic visible H2) -->
+  <div class="flex items-baseline justify-between mb-12 md:mb-16">
+    <div class="flex items-baseline gap-4">
+      <span class="text-xs font-mono tabular-nums text-[var(--text-tertiary)]">01</span>
+      <h2 class="text-sm font-medium tracking-wider text-[var(--text-primary)] uppercase text-balance">
+        Selected Work
+      </h2>
+    </div>
+    <span class="text-xs font-mono tabular-nums text-[var(--text-tertiary)]">2024 — 2026</span>
+  </div>
+
+  <!-- Editorial Project Sequence with Dynamic Pacing Intervals (Calibrated Mobile Rhythm) -->
+  <div class="flex flex-col">
+    <!-- Tier 1: Primary Featured Showcase (Rubix Luxury) — Mobile: 88-96px gap -->
+    <div class="mb-20 md:mb-32">
+      <ProjectFeatured {...project01} />
+    </div>
+
+    <!-- Tier 2: Asymmetric Editorial Split (Trouver) — Mobile: 72-80px gap -->
+    <div class="mb-18 md:mb-24">
+      <ProjectSplit {...project02} reversed={false} />
+    </div>
+
+    <!-- Tier 2: Inverted Asymmetric Editorial Split (VedaHarmony) — Mobile: 88-96px gap -->
+    <div class="mb-20 md:mb-28">
+      <ProjectSplit {...project03} reversed={true} />
+    </div>
+
+    <!-- Tier 3: Balanced Pair with Subtle Offset (Pastel Booth & M.M. Engineering) — Mobile: 88-96px gap -->
+    <div class="mb-20 md:mb-28">
+      <ProjectPair projectA={project04} projectB={project05} />
+    </div>
+
+    <!-- Tier 4: Architectural Catalogue Ledger (DCSA Academy) — Quieter Section Close -->
+    <div>
+      <ProjectLedger {...project06} />
+    </div>
+  </div>
+</section>

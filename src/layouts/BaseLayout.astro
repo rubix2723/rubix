@@ -1,0 +1,86 @@
+---
+import '../styles/ranade-webfont.css';
+import '../styles/design-tokens.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import Navbar from '../components/nav/Navbar.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "RUBIX.studio — Design & Software Engineering",
+  description = "Independent design and software engineering studio creating digital products, interfaces, and web applications.",
+} = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, "https://rubix.studio").href;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#07080A" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Pre-paint Theme Initializer: Eliminates FOUC and theme flashing -->
+    <script is:inline>
+      (function() {
+        try {
+          const stored = localStorage.getItem('rubix-theme');
+          let theme = 'dark';
+          if (stored === 'light' || stored === 'dark') {
+            theme = stored;
+          }
+          document.documentElement.setAttribute('data-theme', theme);
+          const metaTheme = document.querySelector('meta[name="theme-color"]');
+          if (metaTheme) {
+            metaTheme.setAttribute('content', theme === 'light' ? '#F3F1EC' : '#07080A');
+          }
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="relative min-h-[100dvh] bg-[var(--bg-canvas)] text-[var(--text-secondary)] antialiased selection:bg-[var(--accent-signal)] selection:text-[var(--text-inverse)]">
+    <!-- Accessibility Skip Link -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[var(--accent-signal)] focus:text-[var(--text-inverse)] focus:font-semibold focus:rounded-md"
+    >
+      Skip to content
+    </a>
+
+    <!-- Subtle Architectural Background Grid Texture -->
+    <div class="fixed inset-0 pointer-events-none z-0 architectural-grid opacity-60" aria-hidden="true"></div>
+
+    <div class="relative z-10 flex min-h-[100dvh] flex-col">
+      <Navbar />
+      <main id="main-content" class="flex-1">
+        <slot />
+      </main>
+    </div>
+
+    <!-- Architectural Motion & Scroll Choreography Engine -->
+    <script src="../lib/motion/scroll-scenes.ts"></script>
+  </body>
+</html>

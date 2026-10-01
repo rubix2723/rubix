@@ -1,0 +1,124 @@
+---
+// RUBIX V2 — Section 04: Process
+// Vertical Narrative Progression with Architectural Scroll Rail
+// Operational Progression — No agile buzzwords, no glowing timeline nodes, no cards
+
+const stages = [
+  {
+    index: '01',
+    name: 'Frame',
+    summary: 'Clarify objectives, content requirements, and technical boundaries.',
+    detail: 'Before opening design software or writing code, we align on what the product must accomplish, what real content exists, and what technical constraints govern the build. Direct communication keeps decisions fast and unambiguous.',
+  },
+  {
+    index: '02',
+    name: 'Design',
+    summary: 'Shape visual hierarchy, typographic scales, and responsive flows.',
+    detail: 'We structure interfaces with real content and viewport realities in mind. Layouts, type systems, and user flows are resolved to communicate clearly rather than relying on abstract decoration.',
+  },
+  {
+    index: '03',
+    name: 'Build',
+    summary: 'Implement directly in clean, accessible production software.',
+    detail: 'Because design and engineering remain in the same hands, there is no handoff document, no interpretation gap, and no loss of fidelity. Software is engineered with semantic HTML, disciplined CSS, and static-first architecture.',
+  },
+  {
+    index: '04',
+    name: 'Refine',
+    summary: 'Test across real devices, remove friction, and prepare release.',
+    detail: 'We audit the build across representative viewports, verify keyboard and screen reader accessibility, tune performance for fast loads, and resolve edge cases before publishing.',
+  },
+];
+---
+
+<section id="process" class="pt-16 md:pt-28 lg:pt-36 pb-20 md:pb-32 lg:pb-40 scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32">
+  <!-- Section Anchor & Structural Eyebrow (Semantic H2) -->
+  <div class="flex items-baseline justify-between mb-12 md:mb-16">
+    <div class="flex items-baseline gap-4">
+      <span class="text-xs font-mono tabular-nums text-[var(--text-tertiary)]">04</span>
+      <h2 class="text-sm font-medium tracking-wider text-[var(--text-primary)] uppercase text-balance">
+        Process
+      </h2>
+    </div>
+    <span class="hidden md:inline text-xs text-[var(--text-tertiary)] font-sans">
+      Working Model
+    </span>
+  </div>
+
+  <!-- Narrative Grid: Left Sticky Anchor / Right Vertical Progression Rail -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <!-- Left Column (5 cols): Sticky Framing & Narrative Progress -->
+    <div class="lg:col-span-5 lg:sticky lg:top-32 flex flex-col">
+      <p data-process-statement class="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] font-medium text-[var(--text-primary)] tracking-[-0.025em] leading-[1.15] max-w-[20ch] mb-6 [text-wrap:balance]">
+        A direct progression from initial constraints to production release.
+      </p>
+      
+      <!-- Stage Progression Readout (Updates during scroll) -->
+      <div class="mt-4 pt-6 border-t border-[var(--border-hairline)] flex items-center justify-between">
+        <span class="text-xs uppercase tracking-wider text-[var(--text-tertiary)] font-sans">Stage</span>
+        <span data-process-status class="text-xs font-mono tabular-nums text-[var(--accent-signal)]">
+          01 / 04 · Frame
+        </span>
+      </div>
+      <p class="text-xs text-[var(--text-tertiary)] mt-3 leading-relaxed hidden sm:block text-pretty">
+        Continuous execution across architecture, interface design, and code without team handoffs.
+      </p>
+    </div>
+
+    <!-- Right Column (7 cols): Vertical Narrative Stages with Progress Rail -->
+    <div class="lg:col-span-7 relative pl-8 sm:pl-10 md:pl-12">
+      <!-- Background Guide Line (Architectural connector from section entry to rail) -->
+      <div class="absolute left-2.5 sm:left-3 -top-6 sm:-top-8 lg:-top-10 bottom-3 w-px bg-[var(--border-hairline)]" aria-hidden="true"></div>
+      
+      <!-- Active Progress Rail (Fills with scroll) -->
+      <div
+        data-process-rail
+        class="absolute left-2.5 sm:left-3 top-3 w-px bg-gradient-to-b from-[var(--accent-signal)] to-[var(--text-primary)] origin-top transition-transform ease-out"
+        aria-hidden="true"
+        style="height: calc(100% - 24px); transform: scaleY(0);"
+      ></div>
+
+      <!-- Stages 01 to 04 -->
+      <div class="flex flex-col">
+        {stages.map((stage, idx) => (
+          <div
+            data-process-stage={idx + 1}
+            class="process-stage relative pb-16 md:pb-24 last:pb-4 group"
+          >
+            <!-- Stage Node Marker on the Rail -->
+            <div
+              data-stage-node
+              class="absolute -left-[27px] sm:-left-[31px] md:-left-[39px] top-1.5 w-5 h-5 rounded-full border border-[var(--border-hairline)] bg-[var(--bg-canvas)] flex items-center justify-center transition-all duration-300"
+              aria-hidden="true"
+            >
+              <span
+                data-stage-dot
+                class="w-1.5 h-1.5 rounded-full bg-[var(--text-tertiary)] transition-all duration-300"
+              ></span>
+            </div>
+
+            <!-- Stage Content -->
+            <div class="flex flex-col">
+              <div class="flex items-baseline gap-3 mb-2">
+                <span data-stage-index class="text-xs font-mono tabular-nums text-[var(--text-tertiary)] transition-colors duration-300">
+                  {stage.index}
+                </span>
+                <h3 data-stage-title class="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--text-tertiary)] transition-colors duration-300 text-balance">
+                  {stage.name}
+                </h3>
+              </div>
+
+              <p data-stage-summary class="text-base sm:text-lg font-medium text-[var(--text-tertiary)] leading-snug mb-3 transition-colors duration-300 text-pretty">
+                {stage.summary}
+              </p>
+
+              <p data-stage-detail class="text-sm sm:text-base text-[var(--text-tertiary)] leading-[1.65] font-normal max-w-[50ch] transition-colors duration-300 text-pretty">
+                {stage.detail}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

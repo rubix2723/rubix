@@ -1,0 +1,57 @@
+---
+// RUBIX V2 — Section 05: Contact
+// Centered minimal composition: one statement, one email, one clear action
+// Pure static Astro, 0 bytes client JS, 100% semantic HTML & design token compliance
+
+const contactEmail = 'hello@rubix.studio';
+---
+
+<section id="contact" class="pt-16 md:pt-28 lg:pt-36 pb-20 md:pb-32 lg:pb-40 scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32">
+  <!-- Section Eyebrow -->
+  <div data-contact-eyebrow class="flex items-baseline gap-4 mb-14 md:mb-20 lg:mb-24">
+    <span class="text-xs font-mono tabular-nums text-[var(--text-tertiary)]">05</span>
+    <h2 class="text-sm font-medium tracking-wider text-[var(--text-primary)] uppercase">
+      Contact
+    </h2>
+  </div>
+
+  <!-- Centered Statement + Email -->
+  <div class="flex flex-col items-center text-center">
+    <!-- Large Editorial Statement -->
+    <div class="max-w-[960px] xl:max-w-[1080px] mb-10 md:mb-14 lg:mb-16">
+      <p
+        data-contact-statement
+        class="text-[clamp(1.75rem,1rem+3.5vw,4.5rem)] font-medium text-[var(--text-primary)] tracking-[-0.035em] leading-[1.12] [text-wrap:balance]"
+      >
+        Start with the problem. We can work out the rest from there.
+      </p>
+    </div>
+
+    <!-- Single Email Action -->
+    <div data-contact-email-wrap>
+      <a
+        href={`mailto:${contactEmail}`}
+        class="inline-flex items-center gap-2.5 sm:gap-3 text-lg sm:text-xl md:text-2xl font-medium text-[var(--text-primary)] hover:text-[var(--accent-signal)] transition-colors duration-200 min-h-[48px] py-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-signal)] rounded-sm group"
+        aria-label={`Send an email to ${contactEmail} (opens email client)`}
+      >
+        <span class="relative pb-0.5">
+          {contactEmail}
+          <span
+            class="absolute left-0 bottom-0 w-full h-px bg-[var(--accent-signal)] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-out"
+            aria-hidden="true"
+          ></span>
+        </span>
+        <svg
+          class="size-4 sm:size-5 shrink-0 text-[var(--text-tertiary)] group-hover:text-[var(--accent-signal)] transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

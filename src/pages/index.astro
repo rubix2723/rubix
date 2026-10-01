@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/hero/Hero.astro';
+import SelectedWork from '../components/work/SelectedWork.astro';
+import Studio from '../components/studio/Studio.astro';
+import Capabilities from '../components/capabilities/Capabilities.astro';
+import Process from '../components/process/Process.astro';
+import Contact from '../components/contact/Contact.astro';
+import Footer from '../components/footer/Footer.astro';
+---
+
+<BaseLayout>
+  <div class="max-w-[1360px] mx-auto px-6 md:px-12">
+    <!-- Hero Section (Approved & Frozen) -->
+    <Hero weight={600} />
+
+    <!-- Structural Hairline Divider -->
+    <div class="hairline-b" aria-hidden="true"></div>
+
+    <!-- 01 Selected Work Section (Approved & Frozen) -->
+    <SelectedWork />
+
+    <!-- Structural Hairline Divider -->
+    <div class="hairline-b" aria-hidden="true"></div>
+
+    <!-- 02 Studio Section (Approved & Frozen) -->
+    <Studio />
+
+    <!-- Structural Hairline Divider -->
+    <div class="hairline-b" aria-hidden="true"></div>
+
+    <!-- 03 Capabilities Section (Editorial Service Rows) -->
+    <Capabilities />
+
+    <!-- Structural Hairline Divider -->
+    <div class="hairline-b" aria-hidden="true"></div>
+
+    <!-- 04 Process Section (Operational Progression) -->
+    <Process />
+
+    <!-- Structural Hairline Divider -->
+    <div class="hairline-b" aria-hidden="true"></div>
+
+    <!-- 05 Contact Section (Typographic Concluding Statement & Direct Action) -->
+    <Contact />
+
+    <!-- Structural Footer -->
+    <Footer />
+  </div>
+</BaseLayout>

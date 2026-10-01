@@ -1,0 +1,38 @@
+/* ==========================================================================
+   RUBIX.STUDIO — RANADE WEBFONT ARCHITECTURE SPECIFICATION
+   Primary Brand Voice Typeface
+   Licensed webfont files loaded from /fonts/ranade/ with font-display: swap.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Ranade";
+  src:
+    local("Ranade"),
+    local("Ranade-Regular"),
+    url("/fonts/ranade/Ranade-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ranade";
+  src:
+    local("Ranade Medium"),
+    local("Ranade-Medium"),
+    url("/fonts/ranade/Ranade-Medium.otf") format("opentype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ranade";
+  src:
+    local("Ranade Bold"),
+    local("Ranade-Bold"),
+    url("/fonts/ranade/Ranade-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}

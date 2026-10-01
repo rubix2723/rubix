@@ -1,0 +1,259 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   RUBIX V2 DESIGN SYSTEM — MASTER THEME TOKENS & FOUNDATION
+   Calibrated under Senior Design-Engineering Orchestration:
+   - emil-design-eng (Tactile feedback, custom cubic-beziers, unseen correctness)
+   - modern-web-design & frontend-ui-engineering (WCAG AA+, fluid typography)
+   - Dayos interaction principles (Restrained navigation, confident closing)
+   ========================================================================== */
+
+:root,
+html[data-theme="dark"] {
+  /* --- Canvas & Surfaces --- */
+  --bg-canvas: #07080a;
+  --bg-surface: #0e1015;
+  --bg-surface-elevated: #151820;
+  --bg-elevated: var(--bg-surface-elevated);
+  --bg-subtle: rgba(255, 255, 255, 0.02);
+  --canvas: var(--bg-canvas);
+  --surface: var(--bg-surface);
+  --surface-elevated: var(--bg-surface-elevated);
+
+  /* --- Hairlines & Architectural Dividers --- */
+  --border-hairline: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --border-focus: #f97316;
+  --hairline: var(--border-hairline);
+
+  /* --- Text & Contrast Hierarchy (WCAG 2.1 AA & AAA compliant) --- */
+  --text-primary: #f4f4f6;          /* 18.24:1 against canvas (#07080A) */
+  --text-secondary: #a0a5b5;        /* 8.15:1 against canvas */
+  --text-tertiary: #7a7f8e;         /* 5.01:1 against canvas */
+  --text-muted-ui: #7a7f8e;         /* 5.01:1 against canvas */
+  --text-muted-display: #686d7d;    /* 3.89:1 against canvas */
+  --text-muted: var(--text-muted-ui);
+  --text-inverse: #07080a;
+
+  /* --- Accents --- */
+  --accent-signal: #f97316;         /* Industrial Safety Orange */
+  --accent-signal-hover: #ea580c;
+  --accent-signal-tint: rgba(249, 115, 22, 0.1);
+  --signal: var(--accent-signal);
+
+  /* --- Header & Cards --- */
+  --header-bg: rgba(7, 8, 10, 0.88);
+  --header-border: rgba(255, 255, 255, 0.08);
+  --card-bg: #0e1015;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --grid-line: rgba(255, 255, 255, 0.015);
+  --hero-gradient-mask-left: rgba(7, 8, 10, 0.65);
+  --hero-gradient-mask-right: rgba(7, 8, 10, 0.2);
+
+  /* --- Motion Timing & Custom Curves (Emil Kowalski Framework) --- */
+  --ease-premium: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-smooth: cubic-bezier(0.77, 0, 0.175, 1);
+  --duration-tactile: 150ms;
+  --duration-micro: 200ms;
+  --duration-panel: 350ms;
+
+  /* --- Layout & Spatial Grids --- */
+  --container-max: 1360px;
+  --container-padding: clamp(1.5rem, 4vw, 3.5rem);
+  --section-gap: clamp(5rem, 10vw, 9rem);
+  --radius-subtle: 4px;
+  --radius-control: 8px;
+  --radius-panel: 12px;
+
+  /* --- Typography Stack --- */
+  --font-brand: 'Ranade', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Light Theme (Warm Editorial - NOT pure white) */
+html[data-theme="light"] {
+  --bg-canvas: #f3f1ec;
+  --bg-surface: #eae7e0;
+  --bg-surface-elevated: #e2dfd7;
+  --bg-elevated: var(--bg-surface-elevated);
+  --bg-subtle: rgba(0, 0, 0, 0.03);
+  --canvas: var(--bg-canvas);
+  --surface: var(--bg-surface);
+  --surface-elevated: var(--bg-surface-elevated);
+
+  --border-hairline: rgba(0, 0, 0, 0.11);
+  --border-strong: rgba(0, 0, 0, 0.22);
+  --border-focus: #e86610;
+  --hairline: var(--border-hairline);
+
+  --text-primary: #111214;
+  --text-secondary: #555961;
+  --text-tertiary: #70737a;
+  --text-muted-ui: #70737a;
+  --text-muted-display: #84878f;
+  --text-muted: var(--text-muted-ui);
+  --text-inverse: #f4f4f6;
+
+  --accent-signal: #e86610;
+  --accent-signal-hover: #cf5708;
+  --accent-signal-tint: rgba(232, 102, 16, 0.12);
+  --signal: var(--accent-signal);
+
+  --header-bg: rgba(243, 241, 236, 0.90);
+  --header-border: rgba(0, 0, 0, 0.09);
+  --card-bg: #eae7e0;
+  --card-border: rgba(0, 0, 0, 0.09);
+  --grid-line: rgba(0, 0, 0, 0.025);
+  --hero-gradient-mask-left: rgba(243, 241, 236, 0.75);
+  --hero-gradient-mask-right: rgba(243, 241, 236, 0.25);
+}
+
+/* --- Base Elements --- */
+html {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-brand);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background-color: var(--bg-canvas);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* Selective, performant theme transition */
+html.theme-transition,
+html.theme-transition body,
+html.theme-transition header,
+html.theme-transition footer,
+html.theme-transition [data-theme-transition] {
+  transition: background-color 250ms var(--ease-premium),
+              color 250ms var(--ease-premium),
+              border-color 250ms var(--ease-premium);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transition,
+  html.theme-transition * {
+    transition: none !important;
+  }
+}
+
+/* --- Accessibility Focus-Visible Management --- */
+:focus-visible {
+  outline: 2px solid var(--accent-signal);
+  outline-offset: 3px;
+  border-radius: var(--radius-subtle);
+}
+
+/* --- Fluid Typographic Hierarchy --- */
+.type-display {
+  font-size: clamp(2.35rem, 1.1rem + 5.25vw, 7.125rem);
+  line-height: 0.93;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.type-h1 {
+  font-size: clamp(2.25rem, 1.5rem + 3.2vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.type-h2 {
+  font-size: clamp(1.75rem, 1.25rem + 2vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.type-h3 {
+  font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.75rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.type-body-lg {
+  font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 65ch;
+}
+
+.type-body {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 65ch;
+}
+
+.type-caption {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.type-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* --- Architectural Components & Micro-interactions --- */
+.hairline-b {
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.hairline-t {
+  border-top: 1px solid var(--border-hairline);
+}
+
+.architectural-grid {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 0),
+    linear-gradient(180deg, var(--grid-line) 1px, transparent 0);
+}
+
+/* --- Text Reveal Motion Primitives --- */
+.reveal-line-wrap {
+  overflow: hidden;
+  display: block;
+}
+
+.reveal-line {
+  display: block;
+  transform: translateY(0);
+}
+
+.reveal-word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* --- Reduced Motion Enforcement --- */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

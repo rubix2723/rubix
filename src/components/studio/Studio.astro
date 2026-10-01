@@ -1,0 +1,70 @@
+---
+// RUBIX V2 — Phase 08: Studio / About Component
+// Pure static Astro, 0 bytes client JS, 100% semantic HTML & design token compliance
+---
+
+<section id="studio" class="pt-16 md:pt-28 lg:pt-36 pb-20 md:pb-32 lg:pb-40 scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32">
+  <!-- Section Anchor & Structural Eyebrow (Semantic H2) -->
+  <div class="flex items-baseline justify-between mb-12 md:mb-16">
+    <div class="flex items-baseline gap-4">
+      <span class="text-xs font-mono tabular-nums text-[var(--text-tertiary)]">02</span>
+      <h2 class="text-sm font-medium tracking-wider text-[var(--text-primary)] uppercase text-balance">
+        Studio
+      </h2>
+    </div>
+    <!-- Desktop-Only Quiet Practice Descriptor -->
+    <span class="hidden md:inline text-xs text-[var(--text-tertiary)] font-sans">
+      Independent Practice
+    </span>
+  </div>
+
+  <!-- Asymmetric Editorial Grid (8 cols Main / 4 cols Metadata on Desktop) -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-24 items-start">
+    <!-- Left / Main Column: Editorial Statement + Plain Narrative -->
+    <div class="lg:col-span-8 flex flex-col">
+      <!-- Large Editorial Statement -->
+      <p data-studio-statement class="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] xl:text-[48px] font-medium text-[var(--text-primary)] tracking-[-0.025em] leading-[1.18] max-w-[32ch] lg:max-w-[34ch] mb-8 md:mb-12 [text-wrap:balance]">
+        RUBIX keeps design and engineering close enough that the idea survives the build.
+      </p>
+
+      <!-- Narrative Body Copy (2 Short Plain Speech Paragraphs, max 54ch) -->
+      <div data-studio-body class="max-w-[54ch] flex flex-col gap-6 text-[var(--text-secondary)] text-base md:text-[17px] lg:text-[18px] leading-[1.65] font-normal">
+        <p data-studio-p class="text-pretty">
+          RUBIX is an independent design and software engineering studio directed by Ruben. Projects move from structure and interface through implementation without being handed between separate design and development teams.
+        </p>
+        <p data-studio-p class="text-pretty">
+          That keeps decisions close to the work and makes it easier to refine the product as it takes shape.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Column: Subordinate Practice Metadata Ledger -->
+    <div class="lg:col-span-4 flex flex-col lg:pt-2">
+      <dl data-studio-ledger class="flex flex-col border-t border-[var(--border-hairline)] divide-y divide-[var(--border-hairline)]">
+        <div data-ledger-row class="py-4 md:py-5 flex flex-col gap-1.5">
+          <dt class="text-xs uppercase tracking-wider text-[var(--text-tertiary)] font-normal font-sans">Direction</dt>
+          <dd class="text-sm md:text-base text-[var(--text-primary)] font-normal m-0 font-sans">Ruben</dd>
+        </div>
+        <div data-ledger-row class="py-4 md:py-5 flex flex-col gap-1.5">
+          <dt class="text-xs uppercase tracking-wider text-[var(--text-tertiary)] font-normal font-sans">Practice</dt>
+          <dd class="text-sm md:text-base text-[var(--text-primary)] font-normal m-0 font-sans">Product Design + Software Engineering</dd>
+        </div>
+        <div data-ledger-row class="py-4 md:py-5 flex flex-col gap-1.5">
+          <dt class="text-xs uppercase tracking-wider text-[var(--text-tertiary)] font-normal font-sans">Model</dt>
+          <dd class="text-sm md:text-base text-[var(--text-primary)] font-normal m-0 font-sans">Direct Collaboration</dd>
+        </div>
+      </dl>
+
+      <!-- Optional Quiet Action Link (Target #contact, min-h-[44px] touch target compliant) -->
+      <div class="pt-4 md:pt-6">
+        <a
+          href="#contact"
+          class="min-h-[44px] inline-flex items-center gap-2 text-sm font-medium text-[var(--text-primary)] hover:text-[var(--accent-signal)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-signal)] rounded-sm py-2.5 group"
+        >
+          Start a conversation
+          <span class="inline-block transition-transform duration-150 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

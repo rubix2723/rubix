@@ -1,0 +1,402 @@
+---
+// RUBIX V2 — Floating Glassmorphism Navigation
+// Architectural floating capsule: Brand left, Section navigation center, Theme & Action right
+// Semi-transparent backdrop blur, hairline edge, soft ambient occlusion, active scrollspy
+---
+
+<header
+  data-site-header
+  data-scrolled="false"
+  class="fixed top-3.5 sm:top-5 md:top-6 inset-x-0 z-50 flex justify-center pointer-events-none px-4 sm:px-6"
+>
+  <!-- Floating Glass Capsule Container -->
+  <div
+    data-nav-capsule
+    class="pointer-events-auto flex items-center justify-between w-full max-w-[1080px] h-[52px] sm:h-[56px] px-3.5 sm:px-5 md:px-6 rounded-full border border-[var(--border-hairline)] bg-[var(--bg-canvas)]/80 backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.7)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)] transition-all duration-200 select-none"
+  >
+    <!-- Brand Lockup -->
+    <a
+      href="#hero-section"
+      class="flex items-center gap-1.5 select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-signal)] rounded-sm py-1 group shrink-0"
+      aria-label="RUBIX.studio - Back to top"
+    >
+      <span class="text-sm sm:text-base font-semibold tracking-tight text-[var(--text-primary)] transition-colors">
+        RUBIX<span class="text-[var(--text-tertiary)] font-normal group-hover:text-[var(--text-secondary)]">.studio</span>
+      </span>
+    </a>
+
+    <!-- Center Navigation Links (Natural Case, Active Scrollspy Indicator) -->
+    <nav class="hidden md:flex items-center gap-1 lg:gap-1.5" aria-label="Primary navigation">
+      <a
+        href="#work"
+        data-nav-link="work"
+        class="nav-link px-3 py-1.5 rounded-full text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-signal)]"
+      >
+        Work
+      </a>
+      <a
+        href="#studio"
+        data-nav-link="studio"
+        class="nav-link px-3 py-1.5 rounded-full text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-signal)]"
+      >
+        Studio
+      </a>
+      <a
+        href="#capabilities"
+        data-nav-link="capabilities"
+        class="nav-link px-3 py-1.5 rounded-full text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-signal)]"
+      >
+        Capabilities
+      </a>
+      <a
+        href="#process"
+        data-nav-link="process"
+        class="nav-link px-3 py-1.5 rounded-full text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-signal)]"
+      >
+        Process
+      </a>
+      <a
+        href="#contact"
+        data-nav-link="contact"
+        class="nav-link px-3 py-1.5 rounded-full text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-signal)]"
+      >
+        Contact
+      </a>
+    </nav>
+
+    <!-- Right Controls: Theme Toggle & Direct Conversation CTA -->
+    <div class="hidden md:flex items-center gap-2 lg:gap-3 shrink-0">
+      <!-- Tactile Glass Theme Switch (54x28px, 22px sliding glass orb) -->
+      <button
+        id="theme-toggle-btn"
+        type="button"
+        role="switch"
+        aria-checked="true"
+        aria-label="Toggle color theme"
+        title="Toggle color theme"
+        class="relative w-[54px] h-[28px] p-[2px] rounded-full border border-[var(--border-hairline)] bg-[var(--bg-surface)]/80 hover:border-[var(--border-strong)] transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-signal)] select-none backdrop-blur-md shrink-0"
+      >
+        <!-- Track Background Icons (Monoline Sun Left, Monoline Moon Right) -->
+        <div class="absolute inset-0 px-2 flex items-center justify-between pointer-events-none text-[var(--text-tertiary)]" aria-hidden="true">
+          <!-- Sun glyph -->
+          <svg class="size-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4" />
+            <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
+          </svg>
+          <!-- Moon glyph -->
+          <svg class="size-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+        </div>
+
+        <!-- Sliding Tactile Glass Orb (22px) -->
+        <div
+          data-theme-orb
+          class="relative size-[22px] rounded-full flex items-center justify-center bg-[var(--bg-elevated)] border border-[var(--border-strong)] shadow-[0_2px_6px_rgba(0,0,0,0.18)] transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+        >
+          <!-- Sun in orb for light mode -->
+          <svg data-orb-sun class="size-3 text-[var(--accent-signal)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
+          </svg>
+          <!-- Moon in orb for dark mode -->
+          <svg data-orb-moon class="size-3 text-[var(--text-primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+        </div>
+      </button>
+
+      <!-- Integrated CTA Capsule Button -->
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-1.5 px-3.5 lg:px-4 py-1.5 rounded-full text-xs font-medium text-[var(--bg-canvas)] bg-[var(--text-primary)] hover:opacity-90 active:scale-[0.98] transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-signal)] shrink-0 shadow-sm"
+      >
+        <span>Start a conversation</span>
+        <span class="text-xs leading-none" aria-hidden="true">&nearr;</span>
+      </a>
+    </div>
+
+    <!-- Mobile Navigation Trigger & Theme Toggle -->
+    <div class="md:hidden flex items-center gap-1.5">
+      <!-- Mobile Theme Toggle Button -->
+      <button
+        id="mobile-theme-toggle-btn"
+        type="button"
+        role="switch"
+        aria-checked="true"
+        class="size-9 rounded-full flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-signal)] transition-colors"
+        aria-label="Toggle color theme"
+      >
+        <svg
+          data-theme-icon="sun"
+          class="size-4 hidden dark-show"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.75"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="4" />
+          <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
+        </svg>
+        <svg
+          data-theme-icon="moon"
+          class="size-4 hidden light-show"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.75"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+        </svg>
+      </button>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        class="size-9 rounded-full flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-signal)] transition-colors"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg id="hamburger-icon" class="size-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <svg id="close-icon" class="size-4.5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating Ranade Mobile Menu Sheet -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden fixed inset-x-4 top-18 sm:top-20 z-50 p-6 rounded-2xl border border-[var(--border-hairline)] bg-[var(--bg-canvas)]/96 backdrop-blur-2xl shadow-2xl flex flex-col justify-between max-h-[calc(100dvh-5.5rem)] overflow-y-auto pointer-events-auto"
+    aria-label="Mobile navigation"
+  >
+    <!-- Monumental Navigation Links -->
+    <nav class="flex flex-col gap-1 pt-2">
+      <a
+        href="#work"
+        class="mobile-nav-link group flex items-center justify-between py-2.5 border-b border-[var(--border-hairline)] text-2xl font-medium tracking-tight text-[var(--text-primary)] hover:text-[var(--accent-signal)] transition-colors"
+      >
+        <span>Work</span>
+        <span class="text-xs font-mono tabular-nums text-[var(--text-tertiary)] group-hover:text-[var(--accent-signal)]">01</span>
+      </a>
+      <a
+        href="#studio"
+        class="mobile-nav-link group flex items-center justify-between py-2.5 border-b border-[var(--border-hairline)] text-2xl font-medium tracking-tight text-[var(--text-primary)] hover:text-[var(--accent-signal)] transition-colors"
+      >
+        <span>Studio</span>
+        <span class="text-xs font-mono tabular-nums text-[var(--text-tertiary)] group-hover:text-[var(--accent-signal)]">02</span>
+      </a>
+      <a
+        href="#capabilities"
+        class="mobile-nav-link group flex items-center justify-between py-2.5 border-b border-[var(--border-hairline)] text-2xl font-medium tracking-tight text-[var(--text-primary)] hover:text-[var(--accent-signal)] transition-colors"
+      >
+        <span>Capabilities</span>
+        <span class="text-xs font-mono tabular-nums text-[var(--text-tertiary)] group-hover:text-[var(--accent-signal)]">03</span>
+      </a>
+      <a
+        href="#process"
+        class="mobile-nav-link group flex items-center justify-between py-2.5 border-b border-[var(--border-hairline)] text-2xl font-medium tracking-tight text-[var(--text-primary)] hover:text-[var(--accent-signal)] transition-colors"
+      >
+        <span>Process</span>
+        <span class="text-xs font-mono tabular-nums text-[var(--text-tertiary)] group-hover:text-[var(--accent-signal)]">04</span>
+      </a>
+      <a
+        href="#contact"
+        class="mobile-nav-link group flex items-center justify-between py-2.5 border-b border-[var(--border-hairline)] text-2xl font-medium tracking-tight text-[var(--text-primary)] hover:text-[var(--accent-signal)] transition-colors"
+      >
+        <span>Contact</span>
+        <span class="text-xs font-mono tabular-nums text-[var(--text-tertiary)] group-hover:text-[var(--accent-signal)]">05</span>
+      </a>
+    </nav>
+
+    <!-- Mobile Bottom Cluster -->
+    <div class="flex flex-col gap-4 pt-6 pb-2">
+      <a
+        href="#contact"
+        class="mobile-nav-link w-full py-3 px-4 rounded-xl text-center text-sm font-semibold text-white bg-[var(--accent-signal)] hover:opacity-95 transition-opacity"
+      >
+        Start a conversation &nearr;
+      </a>
+      <div class="flex items-center justify-between text-xs text-[var(--text-tertiary)] font-mono">
+        <span>hello@rubix.studio</span>
+        <span>Independent Practice</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Theme Icon Toggling */
+  :global([data-theme="dark"]) .dark-show {
+    display: block !important;
+  }
+  :global([data-theme="dark"]) .light-show {
+    display: none !important;
+  }
+  :global([data-theme="light"]) .dark-show {
+    display: none !important;
+  }
+  :global([data-theme="light"]) .light-show {
+    display: block !important;
+  }
+
+  /* Liquid Glass Theme Switch Styles */
+  :global([data-theme="light"]) [data-theme-orb] {
+    transform: translateX(0px) !important;
+  }
+  :global([data-theme="dark"]) [data-theme-orb] {
+    transform: translateX(26px) !important;
+  }
+  :global([data-theme="light"]) [data-orb-sun] {
+    display: block !important;
+  }
+  :global([data-theme="light"]) [data-orb-moon] {
+    display: none !important;
+  }
+  :global([data-theme="dark"]) [data-orb-sun] {
+    display: none !important;
+  }
+  :global([data-theme="dark"]) [data-orb-moon] {
+    display: block !important;
+  }
+
+  /* Active Nav Link Highlighting */
+  .nav-link.active {
+    color: var(--text-primary) !important;
+    background-color: var(--bg-surface) !important;
+    border: 1px solid var(--border-hairline);
+  }
+</style>
+
+<script>
+  function setupNavigationSystem() {
+    // 1. Mobile Menu Logic with Body Scroll Lock
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const links = document.querySelectorAll('.mobile-nav-link');
+
+    if (toggle && menu && hamburgerIcon && closeIcon) {
+      function setMenuState(open: boolean) {
+        toggle?.setAttribute('aria-expanded', String(open));
+        if (open) {
+          menu?.classList.remove('hidden');
+          hamburgerIcon?.classList.add('hidden');
+          closeIcon?.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        } else {
+          menu?.classList.add('hidden');
+          hamburgerIcon?.classList.remove('hidden');
+          closeIcon?.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
+      }
+
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        setMenuState(!isOpen);
+      });
+
+      links.forEach((link) => {
+        link.addEventListener('click', () => {
+          setMenuState(false);
+        });
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+          setMenuState(false);
+          toggle.focus();
+        }
+      });
+    }
+
+    // 2. Global Theme Toggle System
+    function syncThemeToggleUI(theme: string) {
+      const isDark = theme === 'dark';
+      const themeBtn = document.getElementById('theme-toggle-btn');
+      const mobileThemeBtn = document.getElementById('mobile-theme-toggle-btn');
+      if (themeBtn) themeBtn.setAttribute('aria-checked', String(isDark));
+      if (mobileThemeBtn) mobileThemeBtn.setAttribute('aria-checked', String(isDark));
+    }
+
+    function updateTheme(next: string) {
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('rubix-theme', next);
+
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
+      if (metaTheme) {
+        metaTheme.setAttribute('content', next === 'light' ? '#F3F1EC' : '#07080A');
+      }
+
+      syncThemeToggleUI(next);
+      window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme: next } }));
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      updateTheme(next);
+    }
+
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    syncThemeToggleUI(currentTheme);
+
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const mobileThemeBtn = document.getElementById('mobile-theme-toggle-btn');
+    if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+    if (mobileThemeBtn) mobileThemeBtn.addEventListener('click', toggleTheme);
+
+    // MutationObserver to guarantee sync even if another script alters data-theme
+    const themeObserver = new MutationObserver(() => {
+      const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+      syncThemeToggleUI(theme);
+    });
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+    // 3. Section Scrollspy Active State Highlighting
+    const navLinks = document.querySelectorAll<HTMLElement>('.nav-link');
+    const sectionIds = ['work', 'studio', 'capabilities', 'process', 'contact'];
+
+    function updateScrollspy() {
+      const scrollY = window.scrollY || window.pageYOffset;
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          const top = rect.top + scrollY;
+          if (scrollY >= top - 200 && scrollY < top + el.offsetHeight - 200) {
+            activeSectionId = id;
+            break;
+          }
+        }
+      }
+
+      navLinks.forEach((link) => {
+        const target = link.getAttribute('data-nav-link');
+        if (target === activeSectionId) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    let activeSectionId = '';
+    window.addEventListener('scroll', updateScrollspy, { passive: true });
+    updateScrollspy();
+  }
+
+  setupNavigationSystem();
+  document.addEventListener('astro:page-load', setupNavigationSystem);
+</script>

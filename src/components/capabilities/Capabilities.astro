@@ -1,0 +1,30 @@
+---
+// RUBIX V2 — Section 03: Capabilities
+// Integrates interactive editorial rows with persistent WebGL ShaderLines and custom motion icons
+import { CapabilitiesInteractive } from './CapabilitiesInteractive';
+---
+
+<section id="capabilities" class="pt-16 md:pt-28 lg:pt-36 pb-20 md:pb-32 lg:pb-40 scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32">
+  <!-- Section Anchor & Structural Eyebrow (Semantic H2) -->
+  <div class="flex items-baseline justify-between mb-12 md:mb-16">
+    <div class="flex items-baseline gap-4">
+      <span class="text-xs font-mono tabular-nums text-[var(--text-tertiary)]">03</span>
+      <h2 class="text-sm font-medium tracking-wider text-[var(--text-primary)] uppercase text-balance">
+        Capabilities
+      </h2>
+    </div>
+    <span class="hidden md:inline text-xs text-[var(--text-tertiary)] font-sans">
+      Practice Scope
+    </span>
+  </div>
+
+  <!-- Editorial Section Statement -->
+  <div class="mb-14 md:mb-20">
+    <p class="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] font-medium text-[var(--text-primary)] tracking-[-0.025em] leading-[1.15] max-w-[34ch] [text-wrap:balance]">
+      Every engagement combines interface design with direct software implementation.
+    </p>
+  </div>
+
+  <!-- Interactive Capabilities & Motion Stage Island (Hydrated client:visible) -->
+  <CapabilitiesInteractive client:visible />
+</section>
