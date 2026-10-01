@@ -164,13 +164,13 @@ export function initScrollScenes() {
 
   // DESKTOP (>= 1024px)
   mm.add("(min-width: 1024px)", () => {
-    // --- Hero Section Parallax Triad ---
+    // --- Hero Section Centered Cinematic Scroll Choreography ---
     const line1 = document.querySelector<HTMLElement>('[data-hero-line="1"]');
     const line2 = document.querySelector<HTMLElement>('[data-hero-line="2"]');
     const line3 = document.querySelector<HTMLElement>('[data-hero-line="3"]');
     const heroSupport = document.querySelector<HTMLElement>("[data-hero-support]");
-    const heroMeta = document.querySelector<HTMLElement>("[data-hero-meta]");
-    const heroMercury = document.querySelector<HTMLElement>("[data-hero-mercury]");
+    const heroAction = document.querySelector<HTMLElement>("[data-hero-action]");
+    const heroVideoWrap = document.querySelector<HTMLElement>("[data-hero-video-wrap]");
 
     if (line1 && line2 && line3) {
       const heroTl = gsap.timeline({
@@ -182,18 +182,19 @@ export function initScrollScenes() {
         },
       });
 
+      // Centered vertical exit drift (subtle elevation, preserving central visual harmony)
       heroTl
-        .to(line1, { xPercent: -3.0, ease: "none" }, 0)
-        .to(line2, { xPercent: 4.0, ease: "none" }, 0)
-        .to(line3, { xPercent: -1.8, ease: "none" }, 0);
+        .to(line1, { yPercent: -16, opacity: 0.35, ease: "none" }, 0)
+        .to(line2, { yPercent: -12, opacity: 0.40, ease: "none" }, 0)
+        .to(line3, { yPercent: -8, opacity: 0.45, ease: "none" }, 0);
 
-      if (heroMercury) {
+      if (heroVideoWrap) {
         heroTl.to(
-          heroMercury,
+          heroVideoWrap,
           {
-            yPercent: -6,
-            scale: 0.96,
-            opacity: 0.04,
+            yPercent: 8,
+            scale: 1.03,
+            opacity: 0.25,
             ease: "none",
           },
           0
@@ -201,10 +202,10 @@ export function initScrollScenes() {
       }
 
       if (heroSupport) {
-        heroTl.to(heroSupport, { yPercent: 12, opacity: 0.65, ease: "none" }, 0);
+        heroTl.to(heroSupport, { yPercent: 10, opacity: 0.3, ease: "none" }, 0);
       }
-      if (heroMeta) {
-        heroTl.to(heroMeta, { yPercent: 18, opacity: 0.5, ease: "none" }, 0);
+      if (heroAction) {
+        heroTl.to(heroAction, { yPercent: 14, opacity: 0.2, ease: "none" }, 0);
       }
     }
 
@@ -356,12 +357,13 @@ export function initScrollScenes() {
 
   // ALL VIEWPORTS (Desktop, Tablet & Mobile)
   mm.add("(min-width: 0px)", () => {
-    // Hero Mercury Scroll Fade on non-desktop screens (< 1024px)
-    const heroMercuryMobile = document.querySelector<HTMLElement>("[data-hero-mercury]");
-    if (heroMercuryMobile && window.innerWidth < 1024) {
-      gsap.to(heroMercuryMobile, {
-        yPercent: -4,
-        opacity: 0.04,
+    // Hero Video Scroll Parallax on non-desktop screens (< 1024px)
+    const heroVideoMobile = document.querySelector<HTMLElement>("[data-hero-video-wrap]");
+    if (heroVideoMobile && window.innerWidth < 1024) {
+      gsap.to(heroVideoMobile, {
+        yPercent: 6,
+        scale: 1.02,
+        opacity: 0.3,
         ease: "none",
         scrollTrigger: {
           trigger: "#hero-section",
@@ -802,7 +804,8 @@ function applyReducedMotion() {
     "[data-hero-line='2']",
     "[data-hero-line='3']",
     "[data-hero-support]",
-    "[data-hero-meta]",
+    "[data-hero-action]",
+    "[data-hero-video-wrap]",
     "[data-contact-email-wrap]",
     "[data-project-media]",
     "[data-project-img]",
